@@ -101,8 +101,6 @@ Recommended Models (with vision support):
         print("\n\nInterrupted by user")
         sys.exit(1)
     except Exception as e:
-        import traceback
-        traceback.print_exc()
         print(f"\nError: {e}")
         sys.exit(1)
 
