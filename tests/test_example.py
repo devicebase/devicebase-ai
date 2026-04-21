@@ -1,0 +1,7 @@
+"""Example test — replace with real tests."""
+
+from devicebase_ai import __version__
+
+
+def test_version() -> None:
+    assert __version__ == "0.1.0"
