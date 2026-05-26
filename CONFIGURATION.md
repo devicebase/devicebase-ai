@@ -29,8 +29,8 @@ python main.py "Open WeChat"
 
 | Variable | Description | Default | Example |
 |----------|-------------|---------|---------|
-| `DEVICEBASE_BASE_URL` | Base URL for devicebase server | None | `http://localhost:8080` |
-| `DEVICEBASE_API_KEY` | API key for devicebase | None | `your-devicebase-key` |
+| `DEVICEBASE_BASE_URL` | Base URL for devicebase server | None | `https://api.devicebase.cn` |
+| `DEVICEBASE_API_KEY` | API key for devicebase | None | `your-devicebase-api-key` |
 
 ## LLM Provider Examples
 
@@ -110,8 +110,8 @@ python main.py "Task" \
 
 # Override devicebase configuration
 python main.py "Task" \
-  --devicebase-base-url "http://localhost:8080" \
-  --devicebase-api-key "devicebase-key"
+  --devicebase-base-url "https://api.devicebase.cn" \
+  --devicebase-api-key "devicebase-api-key"
 ```
 
 ### Disable Streaming
@@ -142,8 +142,8 @@ agent = Agent(
     base_url="https://api.openai.com/v1",
     model="gpt-4o-mini",
     device_serial=None,  # Auto-detect
-    devicebase_base_url="http://localhost:8080",
-    devicebase_api_key="devicebase-key"
+    devicebase_base_url="https://api.devicebase.cn",
+    devicebase_api_key="devicebase-api-key"
 )
 
 agent.run("Open WeChat")
@@ -157,8 +157,8 @@ from agents.agent import Agent
 
 # LLM from environment, devicebase explicit
 agent = Agent(
-    devicebase_base_url="http://localhost:8080",
-    devicebase_api_key="devicebase-key"
+    devicebase_base_url="https://api.devicebase.cn",
+    devicebase_api_key="devicebase-api-key"
 )
 
 # LLM explicit, devicebase from environment
@@ -191,7 +191,7 @@ python -c "import os; print(f'Model: {os.getenv(\"OPENAI_MODEL_NAME\", \"Not set
 
 ```bash
 # Test devicebase connection
-curl http://localhost:8080/api/devices
+curl https://api.devicebase.cn/v1/devices
 ```
 
 ### Model-Specific Issues

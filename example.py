@@ -50,7 +50,7 @@ def main():
         return
 
     # Run a task
-    task = "打开微信给xx发送消息"
+    task = "打开微信给小明发送一个笑脸的表情"
     print(f"\nTask: {task}\n")
 
     try:

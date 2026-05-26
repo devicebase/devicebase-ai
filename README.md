@@ -49,8 +49,8 @@ export OPENAI_MODEL_NAME="gpt-4o-mini"  # Optional, default: gpt-4o-mini
 
 **Devicebase Configuration (Optional):**
 ```bash
-export DEVICEBASE_BASE_URL="http://localhost:8080"  # Optional
-export DEVICEBASE_API_KEY="your-devicebase-key"  # Optional
+export DEVICEBASE_BASE_URL="https://api.devicebase.cn"  # Optional
+export DEVICEBASE_API_KEY="your-devicebase-api-key"  # Optional
 export DEVICEBASE_DEVICE_SERIAL="your-devicebase-device-serial"  # Optional
 ```
 
@@ -97,14 +97,15 @@ export OPENAI_MODEL_NAME="llama3.2-vision"  # ⚠️ Must use vision variant!
 ### Basic ReAct Agent
 
 ```bash
-# Set your OpenAI API key
-export OPENAI_API_KEY="your-api-key"
+# Set your Devicebase API Key
+export DEVICEBASE_API_KEY="your-devicebase-api-key"
+export DEVICEBASE_DEVICE_SERIAL="your-devicebase-device-serial"  # Optional
 
 # Run the example
 python example.py
 
 # Or use main.py
-python main.py "打开微信给xx发送消息"
+python main.py "打开微信给小明发送一个笑脸的表情"
 ```
 
 ### With Custom Options
@@ -127,15 +128,15 @@ python main.py "Task" \
 # Override devicebase configuration
 # visit https://devicebase.cn/ for more information
 python main.py "Task" \
-  --devicebase-base-url "http://localhost:8080" \
-  --devicebase-api-key "devicebase-key"
+  --devicebase-base-url "https://api.devicebase.cn" \
+  --devicebase-api-key "devicebase-api-key"
 ```
 
 ### Programmatic Usage
 
 ```python
 import os
-from agents.agent import Agent
+from devicebase_ai.agent import Agent
 
 # Using environment variables
 agent = Agent()
@@ -146,12 +147,12 @@ agent = Agent(
     base_url="https://api.openai.com/v1",
     model="gpt-4o-mini",
     device_serial=None,  # Auto-detect
-    devicebase_base_url="http://localhost:8080",
-    devicebase_api_key="devicebase-key"
+    devicebase_base_url="https://api.devicebase.cn",
+    devicebase_api_key="devicebase-api-key"
 )
 
 # Run task
-agent.run("打开微信给xx发送消息", stream=True)
+agent.run("打开微信给小明发送一个笑脸的表情", stream=True)
 ```
 
 ## Configuration
